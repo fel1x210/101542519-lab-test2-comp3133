@@ -9,6 +9,17 @@ This project is an Angular application that interacts with the public [Harry Pot
 - **Character Details:** Provides an in-depth view of a selected character's details.
 - **Optimized Data Fetching:** Utilizes Angular `HttpClient` along with RxJS `shareReplay` to cache API responses, minimizing unnecessary network requests and improving application performance.
 
+## Screenshots
+
+### Main Application View
+![Main View](Screenshot%202026-04-08%20083825.png)
+
+### Filtered by House (Slytherin)
+![Filtered by House View](Screenshot%202026-04-08%20083835.png)
+
+### Character Details View
+![Character Details View](Screenshot%202026-04-08%20083845.png)
+
 ## Architecture
 The application is built using modern Angular (v21.x) features and follows a modular structure:
 
