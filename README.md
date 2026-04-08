@@ -1,59 +1,49 @@
-# 101542519LabTest2Comp3133
+# Harry Potter Character Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.3.
+## Project Overview
+This project is an Angular application that interacts with the public [Harry Potter API](https://hp-api.onrender.com) to display characters from the Harry Potter universe. It allows users to view a list of characters, filter them by Hogwarts house, and view detailed information for individual characters.
 
-## Development server
+## Features
+- **Character List:** Displays a comprehensive list of Harry Potter characters fetching data from the HP API.
+- **Character Filtering:** Includes a filtering component allowing users to filter characters based on their respective Hogwarts houses.
+- **Character Details:** Provides an in-depth view of a selected character's details.
+- **Optimized Data Fetching:** Utilizes Angular `HttpClient` along with RxJS `shareReplay` to cache API responses, minimizing unnecessary network requests and improving application performance.
 
-To start a local development server, run:
+## Architecture
+The application is built using modern Angular (v21.x) features and follows a modular structure:
 
-```bash
-ng serve
-```
+### Components
+- `CharacterListComponent`: Responsible for rendering the list of characters.
+- `CharacterFilterComponent`: Handles the user input for filtering characters by house.
+- `CharacterDetailsComponent`: Displays the detailed view of a specific character.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Services
+- `HpApiService`: A centralized service for API interactions. It handles endpoints for:
+  - Fetching all characters.
+  - Fetching characters by specific houses with built-in caching (`houseCache`).
+  - Fetching individual character details by ID with caching (`characterByIdCache`).
 
-## Code scaffolding
+### Models
+- `Character`: Defines the data structure representing a Harry Potter character.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Technologies Used
+- **Framework:** Angular 21.2.0
+- **UI Components:** Angular Material & CDK
+- **Languages:** TypeScript, SCSS, HTML
+- **Reactive Programming:** RxJS 7.8.0
+- **Testing:** Vitest
 
-```bash
-ng generate component component-name
-```
+## Getting Started
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+To run the application locally:
 
-```bash
-ng generate --help
-```
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+2. Start the development server:
+   ```bash
+   npm start
+   ```
+   Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
