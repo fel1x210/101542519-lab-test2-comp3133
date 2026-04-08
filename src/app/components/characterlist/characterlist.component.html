@@ -1,0 +1,33 @@
+<div class="character-list-container">
+  <div class="filter-bar">
+    <h2>Harry Potter Characters</h2>
+    <app-characterfilter (houseChange)="onHouseChange($event)" />
+  </div>
+
+  @if (loading) {
+    <div class="spinner-wrapper">
+      <mat-spinner diameter="60"></mat-spinner>
+    </div>
+  }
+
+  @if (!loading && characters.length === 0) {
+    <p class="no-results">No characters found.</p>
+  }
+
+  <div class="card-grid">
+    @for (character of characters; track character.id) {
+      <mat-card class="character-card" (click)="viewDetails(character)">
+        <img
+          mat-card-image
+          [src]="getImage(character)"
+          [alt]="character.name"
+          class="character-image"
+        />
+        <mat-card-header>
+          <mat-card-title>{{ character.name }}</mat-card-title>
+          <mat-card-subtitle>{{ getHouseDisplay(character) }}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    }
+  </div>
+</div>

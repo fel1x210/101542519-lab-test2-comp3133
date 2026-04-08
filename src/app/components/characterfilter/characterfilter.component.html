@@ -1,0 +1,8 @@
+<mat-form-field appearance="outline" class="house-filter">
+  <mat-label>Filter by House</mat-label>
+  <mat-select [value]="selectedHouse" (selectionChange)="onHouseSelect($event.value)">
+    @for (house of houses; track house.value) {
+      <mat-option [value]="house.value">{{ house.label }}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>

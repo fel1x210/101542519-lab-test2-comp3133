@@ -1,0 +1,80 @@
+@if (loading) {
+  <div class="spinner-wrapper">
+    <mat-spinner diameter="60"></mat-spinner>
+  </div>
+}
+
+@if (!loading && character) {
+  <div class="details-container">
+    <button mat-raised-button color="primary" (click)="goBack()" class="back-btn">
+      <mat-icon>arrow_back</mat-icon> Back to List
+    </button>
+
+    <mat-card class="details-card">
+      <div class="details-layout">
+        <div class="image-section">
+          <img [src]="getImage()" [alt]="character.name" class="character-portrait" />
+        </div>
+
+        <div class="info-section">
+          <mat-card-header>
+            <mat-card-title class="character-name">{{ character.name }}</mat-card-title>
+            <mat-card-subtitle>{{ getHouse() }}</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <mat-list>
+              <mat-list-item>
+                <span matListItemTitle>Species</span>
+                <span matListItemLine>{{ character.species || 'Unknown' }}</span>
+              </mat-list-item>
+              <mat-list-item>
+                <span matListItemTitle>Wizard</span>
+                <span matListItemLine>{{ character.wizard ? 'Yes' : 'No' }}</span>
+              </mat-list-item>
+              <mat-list-item>
+                <span matListItemTitle>Ancestry</span>
+                <span matListItemLine>{{ character.ancestry || 'Unknown' }}</span>
+              </mat-list-item>
+              <mat-list-item>
+                <span matListItemTitle>Actor</span>
+                <span matListItemLine>{{ character.actor || 'Unknown' }}</span>
+              </mat-list-item>
+              <mat-list-item>
+                <span matListItemTitle>Wand (wood)</span>
+                <span matListItemLine>{{ character.wand.wood || 'Unknown' }}</span>
+              </mat-list-item>
+              <mat-list-item>
+                <span matListItemTitle>Wand (core)</span>
+                <span matListItemLine>{{ character.wand.core || 'Unknown' }}</span>
+              </mat-list-item>
+              <mat-list-item>
+                <span matListItemTitle>Wand (length)</span>
+                <span matListItemLine>{{ character.wand.length != null ? character.wand.length + '"' : 'Unknown' }}</span>
+              </mat-list-item>
+              <mat-list-item>
+                <span matListItemTitle>Date of Birth</span>
+                <span matListItemLine>{{ character.dateOfBirth || 'Unknown' }}</span>
+              </mat-list-item>
+              <mat-list-item>
+                <span matListItemTitle>Patronus</span>
+                <span matListItemLine>{{ character.patronus || 'Unknown' }}</span>
+              </mat-list-item>
+              <mat-list-item>
+                <span matListItemTitle>Alive</span>
+                <span matListItemLine>{{ character.alive ? 'Yes' : 'No' }}</span>
+              </mat-list-item>
+            </mat-list>
+          </mat-card-content>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+}
+
+@if (!loading && !character) {
+  <div class="not-found">
+    <p>Character not found.</p>
+    <button mat-raised-button color="primary" (click)="goBack()">Back to List</button>
+  </div>
+}
